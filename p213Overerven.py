@@ -21,19 +21,24 @@ class Car():
     
     def increment_odometer(self, miles):
         self.odometer_reading += miles
+        
+class Battery():
+    def __init__(self, battery_size=70):
+        self.battery_size = battery_size
 
+    def describe_battery(self):
+        print("This car has a " + str(self.battery_size) + "-kWh battery.")
+        
 class ElectricalCar(Car):
     '''Represent a car, specific an electrical vehicles.'''
     def __init__(self, make, model, year):
         super().__init__(make, model, year)
-        self.battery_size = 70
-        
-    def describe_battery(self):
-        print("This car has a " + str(self.battery_size) + "-kWh battery." )
+        self.battery = Battery()
+               
         
 your_tesla = ElectricalCar('tesla', 'model s', 2016)
 print(your_tesla.get_descriptive_name())
-your_tesla.describe_battery()
+your_tesla.battery.describe_battery()
 
 
 
